@@ -23,12 +23,14 @@ class Sorter {
   }
 
   sort(indices) {
+    
     var i=0;
     var tmp = [];
     for(i=0; i<indices.length; i++){
       tmp.push(this.mas[indices[i]]);
     }
     tmp.sort();
+    indices.sort();
     for(i=0; i<indices.length; i++){
       this.mas[indices[i]] = tmp[i];
     }
