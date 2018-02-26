@@ -3,6 +3,9 @@ class Sorter {
   constructor() {
     this.mas =[];
     this._length = 0;
+    this.compareFunction = function(x,y){
+      return x-y;
+    }
   }
 
   add(element) {
@@ -29,15 +32,18 @@ class Sorter {
     for(i=0; i<indices.length; i++){
       tmp.push(this.mas[indices[i]]);
     }
-    tmp.sort();
-    indices.sort();
+    
+    tmp.sort(this.compareFunction);
+    
+    indices.sort(function(x,y){return x-y});
     for(i=0; i<indices.length; i++){
       this.mas[indices[i]] = tmp[i];
     }
+    
   }
 
   setComparator(compareFunction) {
-    // your implementation
+    this.compareFunction = compareFunction;
   }
 }
 
